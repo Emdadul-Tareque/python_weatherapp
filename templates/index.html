@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather app</title>
+
+    <style>
+        h1{
+            color: whitesmoke;
+            font-size: 50px;
+        }
+        *{
+            font-family: "Ubuntu Mono";
+        }
+        h2{
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <div align="center" style="background-color: black" padding=20px>
+        <h1>Weather App</h1>
+    </div>
+
+    <br>
+    <div style="display: flex; justify-content: space-evenly">
+    {% for weather_status in cites %}
+        <div>
+             <h2 align="center">{{ weather_status.city }}</h2>
+            <img src="http://openweathermap.org/img/wn/{{ weather_status.icon }}@2x.png" alt="">
+            <h3 align="center"> {{ weather_status.temp | floatformat }} C</h3>
+            <h4 align="center"> {{ weather_status.weather }}</h4>
+
+        </div>
+        
+     {% endfor %}
+    </div>
+</body>
+</html>
